@@ -1,0 +1,236 @@
+<NI UNTUK CSS>
+
+#footer {
+    background-color: black;
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    clear: both;
+    position: relative;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 50px;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    width: 30%;
+    padding: 10px;
+}
+
+.footer-section h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #c46210; 
+    margin-bottom: 10px;
+}
+
+.footer-section p {
+    font-size: 16px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 5px 0;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: #ddd;
+    font-size: 15px;
+}
+
+.footer-section ul li a:hover {
+    color: #c46210;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icons li {
+    list-style: none;
+}
+
+.social-icons li a {
+    text-decoration: none;
+}
+
+.social-icons li a img {
+    transition: transform 0.3s ease;
+}
+
+.social-icons li a:hover img {
+    transform: scale(1.1); 
+}
+
+#socialnetz-logo {
+  width: 200px; 
+  height: auto;  
+  object-fit: contain;  
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px
+    padding-top: 10px;
+}
+
+.social-icons li {
+    list-style-type: none;
+}
+
+.social-icons li a {
+    display: inline-block;
+    color: #fff;
+}
+
+.social-icons li img {
+    width: 35px;
+    height: 35px;
+    gap: 15px
+    object-fit: cover;
+}
+
+.clockdate-wrapper {
+    padding:25px;
+    width:100%;
+    text-align:right;
+    margin:0 auto;
+}
+
+#clock{
+    font-family: sans-serif;
+    font-size: 15px;
+    text-shadow:0px 0px 1px #fff;
+    color: white;
+}
+
+#date {
+    letter-spacing:3px;
+    font-size:15px;
+    font-family:arial,sans-serif;
+    color:#fff;
+}
+
+#footer p {
+    font-size: 14px;
+}
+
+#footer a {
+    color: #ddd;
+    text-decoration: none;
+}
+
+#footer a:hover {
+    color: #ffbc00;
+}
+
+@media screen and (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .footer-section {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+
+<NI UNTUK HTML>
+
+<section id="footer">
+    <article>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <img id="socialnetz-logo" src="socialnetzlogo.png" alt="SocialNetz Logo">
+                <p style="text-align: center; color: white;">SocialNetz is a platform aimed at connecting people, fostering relationships, and enabling growth through the power of technology and social networks.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#">Social Media</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p style="text-align: center; color: white;">Email: <a href="mailto:socialnetz@gmail.com" style="color: white;">socialnetz@gmail.com</a></p>
+                <p style="text-align: center; color: white;">Phone: +60139102552</p>
+                <p style="text-align: center; color: white;">Follow Us:</p>
+                <ul class="social-icons">
+                    <li><a href="https://www.facebook.com/"><img src="logo fb.png" alt="Facebook" style="width: 35px; height: 35px;"></a></li>
+                    <li><a href="https://x.com/"><img src="xlogo.png" alt="Twitter" style="width: 40px; height: 40px;"></a></li>
+                    <li><a href="https://www.instagram.com/"><img src="ig.png" alt="Instagram" style="width: 35px; height: 35px;"></a></li>
+                </ul>
+            </div>
+        </div>
+        <hr style="border: 0; border-top: 1px solid #ccc; margin: 20px 0;">
+        <p><center> &copy; 2025 SocialNetz. All Rights Reserved. </center></p>
+        <font color="white">
+            <a href="privacypolicy.html" style="margin-left: 15px;">Privacy Policy</a> | 
+            <a href="terms.html" style="margin-left: 5px;">Terms of Service</a>
+        </font>
+
+<body onload="startTime()">
+  <div id="clockdate">
+  <div class="clockdate-wrapper">
+    <div id="clock"></div>
+    <div id="date"></div>
+  </div>
+</div>
+</body>
+
+     <script>
+    function startTime() {
+    var today = new Date();
+    var hr = today.getHours();
+    var min = today.getMinutes();
+    var sec = today.getSeconds();
+    ap = (hr < 12) ? "<span>AM</span>" : "<span>PM</span>";
+    hr = (hr == 0) ? 12 : hr;
+    hr = (hr > 12) ? hr - 12 : hr;
+    //Add a zero in front of numbers<10
+    hr = checkTime(hr);
+    min = checkTime(min);
+    sec = checkTime(sec);
+    document.getElementById("clock").innerHTML = hr + ":" + min + ":" + sec + " " + ap;
+    
+    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    var curWeekDay = days[today.getDay()];
+    var curDay = today.getDate();
+    var curMonth = months[today.getMonth()];
+    var curYear = today.getFullYear();
+    var date = curWeekDay+", "+curDay+" "+curMonth+" "+curYear;
+    document.getElementById("date").innerHTML = date;
+    
+    var time = setTimeout(function(){ startTime() }, 500);
+}
+function checkTime(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
+}
+      </script>
+    </article>
+</section>
